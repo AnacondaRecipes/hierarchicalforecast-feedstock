@@ -10,8 +10,9 @@ source:
   sha256: 6add2a50f3536a7df045e28c366e72b8c71b5782cd477a95ad9f9821be886cc3
 
 build:
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  # numpy <1.24 not available for python 3.12
+  skip: True  # [py<37 or py>311]
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
