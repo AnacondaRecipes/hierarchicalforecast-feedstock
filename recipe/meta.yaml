@@ -11,7 +11,8 @@ source:
 
 build:
   # numpy <1.24 not available for python 3.12
-  skip: True  # [py<37 or py>311]
+  # numba not available on s390x
+  skip: True  # [py<37 or py>311 or s390x]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
