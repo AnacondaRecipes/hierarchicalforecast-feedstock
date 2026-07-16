@@ -25,7 +25,6 @@ requirements:
     - wheel
     - setuptools >=45
     - pybind11 >=2.10
-    # $RPATH/libgomp.so.1 not found in packages, sysroot(s) nor the missing_dso_whitelist
     - llvm-openmp {{ cxx_compiler_version }}  # [osx or (win and arm64)]
     - libgomp        # [linux]
     - vcomp14        # [win and x86_64]
@@ -39,6 +38,9 @@ requirements:
     # qpsolvers[clarabel]
     - qpsolvers
     - utilsforecast >=0.2.12
+    - llvm-openmp {{ cxx_compiler_version }}  # [osx or (win and arm64)]
+    - libgomp        # [linux]
+    - vcomp14        # [win and x86_64]
 
 test:
   imports:
